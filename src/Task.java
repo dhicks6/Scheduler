@@ -16,6 +16,6 @@ public class Task{
 
     // For recurrance I need to have possibly a method to set which of the different setting is needed
         // this method could take in a string that parses into the wanted recurrance
-
+    //However I could just have boolieans that all start as false and switch to what is wanted
 
 }
