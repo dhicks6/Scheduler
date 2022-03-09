@@ -17,5 +17,27 @@ public class Task{
     // For recurrance I need to have possibly a method to set which of the different setting is needed
         // this method could take in a string that parses into the wanted recurrance
     //However I could just have boolieans that all start as false and switch to what is wanted
+    // For now I will go with a simple string method
+    public string recurrence(String input) {
+        String selectedRecurrence;
+        if (input == "Daily") {
+            selectedRecurrence = "Daily";
+        }
+        else if(input == "Weekly") {
+            selectedRecurrence = "Weekly"
+        }
+        else if(input == "Monthly") {
+            selectedRecurrence = "Monthly"
+        }
+        else if(input == "Oneshot") {
+            selectedRecurrence = "Oneshot"
+        }
 
+        return selectedRecurrence;
+    }
+
+    // For setting the family that a task belongs to firstly if that family does not exist then it needs to be created.
+    // If the family does exist then the task should be added to that family.
+    // I think I should create a Family constructor that will allow for creation of new familys and have the constructor have
+        // an array of tasks
 }
