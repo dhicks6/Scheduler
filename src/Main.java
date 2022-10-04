@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(string args[]) {
+    public static void main(String[] args) {
 
     }
     // How is my main class going to opperate?
