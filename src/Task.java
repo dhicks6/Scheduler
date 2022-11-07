@@ -21,7 +21,7 @@ public class Task{
     //However I could just have boolieans that all start as false and switch to what is wanted
     // For now I will go with a simple string method
     public String recurrence(String input) {
-        String selectedRecurrence;
+        String selectedRecurrence ="";
         if (input == "Daily") {
             selectedRecurrence = "Daily";
         }

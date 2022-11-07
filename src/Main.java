@@ -1,5 +1,11 @@
+
+
 public class Main {
     public static void main(String[] args) {
+        gui begingui = new gui();
+        begingui.startgui();
+        databaseDriver startDB = new databaseDriver();
+        startDB.startDB();
 
     }
     // How is my main class going to opperate?
