@@ -21,3 +21,4 @@
 
 # HOW TO USE
 ### Currently, the program will be driven by input entered into the IDE
+### You will need to add the jar file for the mysql connector
