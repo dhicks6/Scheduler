@@ -1,60 +1,68 @@
-import javax.swing.*;
-import java.awt.*;
-
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.Line2D;
-//from   w w  w . j  a v a 2s .  c o m
-import javax.swing.JButton;
+import javax.swing.SpringLayout;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.Container;
+
+// Currently using the oracle docs tutorial on the spring layout
 
 public class gui {
     public void startgui() {
-
-        //Creating the Frame
-        JFrame frame = new JFrame("Chat Frame");
+        //Create and set up the window.
+        JFrame frame = new JFrame("Scheduler");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
-        makeFrameFullSize(frame);
 
-        //Creating the MenuBar and adding components
-        JMenuBar mb = new JMenuBar();
-        JMenu m1 = new JMenu("FILE");
-        JMenu m2 = new JMenu("Help");
-        mb.add(m1);
-        mb.add(m2);
-        JMenuItem m11 = new JMenuItem("Open");
-        JMenuItem m22 = new JMenuItem("Save as");
-        m1.add(m11);
-        m1.add(m22);
+        //Set up the content pane.
+        Container contentPane = frame.getContentPane();
+        SpringLayout layout = new SpringLayout();
+        contentPane.setLayout(layout);
+       
+        //Create and add the components.
+        JLabel label = new JLabel("Label: ");
+        JTextField textField = new JTextField("Text field", 15);
+        contentPane.add(label);
+        contentPane.add(textField);
 
-        //Creating the panel at bottom and adding components
-        JPanel panel = new JPanel(); // the panel is not visible in output
-        JLabel label = new JLabel("Enter Text");
-        JTextField tf = new JTextField(10); // accepts upto 10 characters
-        JButton send = new JButton("Send");
-        JButton reset = new JButton("Reset");
-        panel.add(label); // Components Added using Flow Layout
-        panel.add(tf);
-        panel.add(send);
-        panel.add(reset);
+        //Adjust constraints for the label so it's at (5,5).
+        layout.putConstraint(SpringLayout.WEST, label,
+                             5,
+                             SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.NORTH, label,
+                             5,
+                             SpringLayout.NORTH, contentPane);
 
-        // Text Area at the Center
-        JTextArea ta = new JTextArea();
+        //Adjust constraints for the text field so it's at
+        //(<label's right edge> + 5, 5).
+        layout.putConstraint(SpringLayout.WEST, textField,
+                             5,
+                             SpringLayout.EAST, label);
+        layout.putConstraint(SpringLayout.NORTH, textField,
+                             5,
+                             SpringLayout.NORTH, contentPane);
 
-        //Adding Components to the frame.
-        frame.getContentPane().add(BorderLayout.SOUTH, panel);
-        frame.getContentPane().add(BorderLayout.NORTH, mb);
-        frame.getContentPane().add(BorderLayout.CENTER, ta);
+        //Adjust constraints for the content pane: Its right
+        //edge should be 5 pixels beyond the text field's right
+        //edge, and its bottom edge should be 5 pixels beyond
+        //the bottom edge of the tallest component (which we'll
+        //assume is textField).
+        layout.putConstraint(SpringLayout.EAST, contentPane,
+                             5,
+                             SpringLayout.EAST, textField);
+        layout.putConstraint(SpringLayout.SOUTH, contentPane,
+                             5,
+                             SpringLayout.SOUTH, textField);
+
+        //Display the window.
+        frame.pack();
         frame.setVisible(true);
 }
 
+/* 
 private void makeFrameFullSize(JFrame aFrame) {
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     aFrame.setSize(screenSize.width, screenSize.height);
 }
-
+*/
 
 
 }
