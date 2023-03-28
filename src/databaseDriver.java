@@ -20,8 +20,24 @@ public class databaseDriver {
             }catch(Exception e){ System.out.println(e);}  
         }
 
-        public Void newtask(Date entryDate, Date dueDate, String taskFamily, String taskName, String taskDescription) {
+        /*
+         * Here I want CRUD opperations for my database
+         */
+        public Void createTask(Date entryDate, Date dueDate, String taskFamily, String taskName, String taskDescription) {
             
             return(null);
+        }
+
+        public void readTask() {
+
+        }
+
+        public void updateTake() {
+
+        }
+
+        public void deleteTask() {
+
+            
         }
 }
