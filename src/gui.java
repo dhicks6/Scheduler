@@ -2,11 +2,39 @@ import javax.swing.SpringLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.Spring;
+import java.awt.Component;
 import java.awt.Container;
 
 // Currently using the oracle docs tutorial on the spring layout
 
+
+/*
+ Design ideas
+ I want a landing page that displays the calendar in the middle with a weekly task tracker on the right side
+ */
 public class gui {
+
+/*
+ Method for the landing page
+ Should contain a calendar in the middle of the frame with a display on the right that shows this weeks tasks
+ */
+    public void landingPage() {
+        
+    }
+
+/*
+ Method for the task creation page
+ */
+    public void addTask() {
+
+    }
+
+
+
+    /*
+     startgui should be the driver for my gui
+     */
     public void startgui() {
         //Create and set up the window.
         JFrame frame = new JFrame("Scheduler");
@@ -52,17 +80,43 @@ public class gui {
                              5,
                              SpringLayout.SOUTH, textField);
 
+                             
+        //Adjust constraints for the content pane.
+        setContainerSize(contentPane, 5);
+        
         //Display the window.
         frame.pack();
         frame.setVisible(true);
 }
 
-/* 
-private void makeFrameFullSize(JFrame aFrame) {
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    aFrame.setSize(screenSize.width, screenSize.height);
-}
-*/
+public static void setContainerSize(Container parent, int pad) {
+    SpringLayout layout = (SpringLayout) parent.getLayout();
+    Component[] components = parent.getComponents();
+    Spring maxHeightSpring = Spring.constant(0);
+    SpringLayout.Constraints pCons = layout.getConstraints(parent);
 
+    //Set the container's right edge to the right edge
+    //of its rightmost component + padding.
+    Component rightmost = components[components.length - 1];
+    SpringLayout.Constraints rCons =
+            layout.getConstraints(rightmost);
+    pCons.setConstraint(
+            SpringLayout.EAST,
+            Spring.sum(Spring.constant(pad),
+                       rCons.getConstraint(SpringLayout.EAST)));
+
+    //Set the container's bottom edge to the bottom edge
+    //of its tallest component + padding.
+    for (int i = 0; i < components.length; i++) {
+        SpringLayout.Constraints cons =
+            layout.getConstraints(components[i]);
+        maxHeightSpring = Spring.max(maxHeightSpring,
+                                     cons.getConstraint(
+                                            SpringLayout.SOUTH));
+    }
+    pCons.setConstraint(
+            SpringLayout.SOUTH,
+            Spring.sum(Spring.constant(pad), maxHeightSpring));
+}
 
 }

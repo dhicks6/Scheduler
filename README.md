@@ -1,4 +1,4 @@
-## Basic scheduler application that displays on my background.
+## Basic scheduler application that displays a calendar of upcomming events.
 
 ### My motivation for this project is to get better at programming and to have a customizable schedule that better fits my needs.
 ###
@@ -18,6 +18,8 @@
 #HOW I WANT THE PROGRAM TO FUNCTION
 ### Tasks should be able to be created and stored in the database
 
+## How should the GUI work?
+### I want a landing page that shows the current calendar and buttons to add a new 
 
 # HOW TO USE
 ### Currently, the program will be driven by input entered into the IDE
