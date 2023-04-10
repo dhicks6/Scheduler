@@ -7,7 +7,7 @@ public class guiDriver {
      Currently I want to have a landing page, and a task creation page
     */
     public void startGUI() {
-
+        landingPage.createAndShowLandingPage();
     }
 
     

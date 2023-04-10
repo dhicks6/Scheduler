@@ -1,43 +1,30 @@
 package GUI;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 public class landingPage {
-    private static void createAndShowGUI() {
-        String[] labels = {"Name: ", "Fax: ", "Email: ", "Address: "};
-        int numPairs = labels.length;
+    
 
-        //Create and populate the panel.
-        JPanel p = new JPanel(new SpringLayout());
-        for (int i = 0; i < numPairs; i++) {
-            JLabel l = new JLabel(labels[i], JLabel.TRAILING);
-            p.add(l);
-            JTextField textField = new JTextField(10);
-            l.setLabelFor(textField);
-            p.add(textField);
-        }
+    
+    public static void createAndShowLandingPage() {
+        JPanel landingPagePanel = new JPanel(new SpringLayout());
+        JFrame landingPageFrame = new JFrame("Scheduler");
+        landingPageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Lay out the panel.
-        SpringUtilities.makeCompactGrid(p,
-                                        numPairs, 2, //rows, cols
-                                        6, 6,        //initX, initY
-                                        6, 6);       //xPad, yPad
+        
 
-        //Create and set up the window.
-        JFrame frame = new JFrame("SpringForm");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Set up the content pane.
-        p.setOpaque(true);  //content panes must be opaque
-        frame.setContentPane(p);
 
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
     }
+
+
+
+
     
 }

@@ -17,7 +17,7 @@ public class databaseDriver {
             +",  "+rs.getString(7));  
             }
             connection.close();  
-            }catch(Exception e){ System.out.println(e);}  
+            }catch(Exception e){ System.out.println(e);}
         }
 
         /*
@@ -38,6 +38,6 @@ public class databaseDriver {
 
         public void deleteTask() {
 
-            
+
         }
 }

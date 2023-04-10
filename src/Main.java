@@ -2,10 +2,15 @@
 
 public class Main {
     public static void main(String[] args) {
-        gui begingui = new gui();
-        begingui.startgui();
+        GUI.guiDriver begingui = new GUI.guiDriver();
+        begingui.startGUI();
+        
+
+        
+        /*
         databaseDriver startDB = new databaseDriver();
         startDB.startDB();
+        */
 
     }
     // How is my main class going to operate?
