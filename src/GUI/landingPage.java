@@ -15,6 +15,7 @@ public class landingPage {
     public static void createAndShowLandingPage() {
         JPanel landingPagePanel = new JPanel(new SpringLayout());
         JFrame landingPageFrame = new JFrame("Scheduler");
+        System.out.println("Hello world");
         landingPageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         
